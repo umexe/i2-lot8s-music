@@ -1,4 +1,5 @@
 # i2 LOT8s Music
+## NOTICE: SD music is currently broken. I will be working on a fix for that soon.
 This repo contains 2 very simple scripts, hd_music and sd_music.\
 To use them, drag a audio file into the folder, run the script, and enter the filename when prompted.\
 Default duration is 65 for a 1950 duration LOT8s, but can be set to 120 for a 3600 duration Azul LOT8s.\
