@@ -15,7 +15,7 @@ set "combined_wav=combined_audio.wav"
 
 ffmpeg -y -i "%logo_wav%" -i "%input_wav%" -filter_complex "[0:0][1:0]concat=n=2:v=0:a=1[outa]" -map "[outa]" "%combined_wav%"
 
-ffmpeg -y -i "%input_video%" -i "%combined_wav%" -i "%input_image%" -map 0:v -map 1:a -c:v mpeg2video -c:a ac3 -ac 6 -b:a 448k -filter_complex "[0:v]loop=loop=-1:size=1:start=0[v];[v][2:v]overlay=0:0" -t %duration% -f mpegts -pix_fmt yuv420p "%output_ts%"
+ffmpeg -y -i "%input_video%" -i "%combined_wav%" -i "%input_image%" -map 0:v -map 1:a -c:v libx264 -c:a ac3 -ac 6 -b:a 448k -filter_complex "[0:v]loop=loop=-1:size=1:start=0[v];[v][2:v]overlay=0:0" -t %duration% -f mpegts -pix_fmt yuv420p "%output_ts%"
 
 del "%combined_wav%" >nul 2>&1
 
